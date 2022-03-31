@@ -17,19 +17,6 @@ export default class App extends React.Component {
     error: null
   };
 
-  componentDidMount() {
-    navigator.geolocation.getCurrentPosition(
-      position => {
-        this.fetchWeather(position.coords.latitude, position.coords.longitude);
-      },
-      error => {
-        this.setState({
-          error: 'Error Retrieving Weather Condtions'
-        });
-      }
-    );
-  }
-
   fetchWeather(lat = 25, on = 25) {
     fetch (
       `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=${API_KEY}&units=metric`
