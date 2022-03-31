@@ -1,13 +1,16 @@
 // import { StatusBar } from 'expo-status-bar';
 import React from 'react';
+import {Dimensions} from 'react-native'
 import { StyleSheet, Text, View, Animated } from 'react-native';
 import Weather from './comp/Weather';
 import { API_KEY } from './utils/NotThePinkWeatherAPIKey';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+
 // import weatherCondition from './components/WeatherConditions';
 
 
 // { <Weather weather={weatherCondition} temperature={temperature}/> 
-
 
 export default class App extends React.Component {
   state = {
@@ -42,6 +45,11 @@ export default class App extends React.Component {
           </Text>
         ) : (
           <View>
+
+            <View style={styles.iconStyle}>
+              <FontAwesomeIcon icon={ faCoffee } size = '40px'/>
+            </View>
+
             <Text style={styles.subText}>
               Loading the weather...
             </Text>
@@ -65,8 +73,13 @@ const styles = StyleSheet.create({
     color: "#817D80", 
   },
   subText: {
-    fontSize: 20,
+    fontSize: 25,
     fontWeight: "bold",
     color: "#817D80", 
-  }
+  },
+  iconStyle: {
+    alignSelf: 'center',
+    height: 50,
+  },
+
 });
